@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+        <img src="../../assets/icon/logo.png">
+      </ion-buttons>
+  <ion-title>Carga</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content text-center class="fundo" >
+<ion-grid>
+<ion-row>
+<ion-col></ion-col>
+<ion-col>
+    <h2>Sobre nossas Vans</h2>
+    <p>
+        A <SPAN class="negrito">SILVA E OLIVEIRA</SPAN> disponibiliza vans de carga altamente capacitadas para realizar coletas e entregas dos mais diferentes tipos de cargas. 
+        As vans de carga conta com motoristas capacitados para a realização de diferentes serviços.
+    </p>
+    <img src="../../assets/imgs/van.png">
+    <h2>Agenda</h2>
+    <ion-item>
+        <ion-label>Dia</ion-label>
+        <ion-select [(ngModel)]="diaSelect" (ionChange)="getDiaSelect()">
+           <ion-option *ngFor="let dias of agenda | async" [value]="dias.key">{{dias.diaSemana}} ({{ dias.data | date:'dd/MM/yyyy' }})</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-list>
+            <ion-item *ngFor="let hora of agendaHora | async" [hidden]="hora.agendado == 'S'">
+              <h2>{{ hora.hora }}</h2>
+                <button ion-button outline item-end (click)="orcamento(hora, 'carga')">Orçamento</button>
+            </ion-item>
+      </ion-list>
+</ion-col>
+<ion-col></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>

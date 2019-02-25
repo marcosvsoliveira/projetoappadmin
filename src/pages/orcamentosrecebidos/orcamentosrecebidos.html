@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="../../assets/icon/logo.png">
+        </ion-buttons>
+    <ion-title>
+      Orçamento Recebidos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content text-center class="fundo">
+<ion-grid>
+<ion-row>
+
+<ion-col>
+  <h3>Cargas</h3>
+  <ion-list>
+      <ion-item *ngFor="let carga of carga | async">
+        <h2>Solicitante: {{ carga.usuario }}</h2>
+        <h2>Telefone: {{ carga.telefone }}</h2>
+        <h2>Data: {{ carga.data }}</h2>
+        <h2>Dia: {{ carga.diaSemana }}</h2>
+        <h2>Hora: {{ carga.hora }}</h2>
+        <h2>Origem: {{ carga.origem }}</h2>
+        <h2>Destino: {{ carga.destino }}</h2>
+        <button ion-button outline item-end (click)="deleteOrcamento(carga.key, 'carga')">Deletar</button>
+      </ion-item>
+  </ion-list>
+</ion-col>
+
+<ion-col>
+  <h3>Pessoa</h3>
+  <ion-list>
+      <ion-item *ngFor="let pessoa of pessoa | async">
+        <h2>Solicitante: {{ pessoa.usuario }}</h2>
+        <h2>Telefone: {{ pessoa.telefone }}</h2>
+        <h2>Data: {{ pessoa.data }}</h2>
+        <h2>Dia: {{ pessoa.diaSemana }}</h2>
+        <h2>Hora: {{ pessoa.hora }}</h2>
+        <h2>Origem: {{ pessoa.origem }}</h2>
+        <h2>Destino: {{ pessoa.destino }}</h2>
+        <button ion-button outline item-end (click)="deleteOrcamento(carga.key, 'pessoa')">Deletar</button>
+      </ion-item>
+  </ion-list>
+</ion-col>
+
+<ion-col>
+  <h3>Excursão</h3>
+  <ion-list>
+      <ion-item *ngFor="let excursao of excursao | async">
+        <h2>Solicitante: {{ excursao.usuario }}</h2>
+        <h2>Telefone: {{ excursao.telefone }}</h2>
+        <h2>Data: {{ excursao.data }}</h2>
+        <h2>Dia: {{ excursao.diaSemana }}</h2>
+        <h2>Hora: {{ excursao.hora }}</h2>
+        <h2>Origem: {{ excursao.origem }}</h2>
+        <h2>Destino: {{ excursao.destino }}</h2>
+        <button ion-button outline item-end (click)="deleteOrcamento(carga.key, '')">Deletar</button>
+      </ion-item>
+  </ion-list>
+</ion-col>
+
+</ion-row>
+</ion-grid>
+</ion-content>

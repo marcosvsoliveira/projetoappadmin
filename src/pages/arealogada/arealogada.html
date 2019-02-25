@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons end>
+            <img src="../../assets/icon/logo.png">
+          </ion-buttons>
+      <ion-title>Ola, {{userName}}</ion-title>
+    </ion-navbar>
+</ion-header>
+ 
+
+<ion-content text-center class="fundo">
+<ion-grid>
+<ion-row>
+<ion-col></ion-col>
+<ion-col>
+
+  <button class="bordabtn2" ion-button color="dark" clear (click)="newAgenda('carga')">Cadastrar agenda de Carga</button>
+  <button class="bordabtn2" ion-button color="dark" clear (click)="newAgenda('pessoa')">Cadastrar agenda de Pessoa</button>
+  <button class="bordabtn2" ion-button color="dark" clear (click)="newAgenda('')">Cadastrar agenda de Excursão</button>
+  <button class="bordabtn2" ion-button color="dark" clear (click)="orcaRecebidos()">Orçamentos Recebidos</button>
+
+<div class="div">
+
+  <button class="bordabtn1" block ion-button color="dark" clear (click)="agendaOrcamento('carga')">Transporte de carga</button>
+  <button class="bordabtn1" block ion-button color="dark" clear (click)="agendaOrcamento('pessoa')">Transporte de pessoas</button>
+  <button class="bordabtn1" block ion-button color="dark" clear (click)="agendaOrcamento('')">Excursões</button>
+
+</div>
+
+  <button class="bordabtn" ion-button color="dark" clear (click)="signOut()">Sair</button>
+
+</ion-col>
+<ion-col></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>

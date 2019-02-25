@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="../../assets/icon/logo.png">
+        </ion-buttons>
+    <ion-title>
+      Orçamento
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center class="fundo">
+<ion-grid>
+<ion-row>
+<ion-col></ion-col>
+<ion-col>
+  <form [formGroup]="formAgenda">
+  <ion-item>
+    <ion-label>Solicitante</ion-label>
+    <ion-input type="text" formControlName="usuario">{{userName}}</ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.usuario.valid && (formAgenda.controls.usuario.dirty || formAgenda.controls.usuario.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.usuario.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+<ion-item>
+  <ion-label>Email</ion-label>
+  <ion-input type="text" formControlName="email"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="!formAgenda.controls.email.valid && (formAgenda.controls.email.dirty || formAgenda.controls.email.touched)" color="danger">
+  <div [hidden]="!formAgenda.controls.email.errors.required">
+    O campo é obrigatório
+  </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Telefone</ion-label>
+    <ion-input type="text" formControlName="telefone"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.telefone.valid && (formAgenda.controls.telefone.dirty || formAgenda.controls.telefone.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.telefone.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Dia</ion-label>
+    <ion-input type="text" formControlName="dia"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.dia.valid && (formAgenda.controls.dia.dirty || formAgenda.controls.dia.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.dia.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-input type="text" formControlName="data"></ion-input>    
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.data.valid && (formAgenda.controls.data.dirty || formAgenda.controls.data.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.data.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Hora</ion-label>
+    <ion-input type="text" formControlName="hora"></ion-input>    
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.hora.valid && (formAgenda.controls.hora.dirty || formAgenda.controls.hora.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.hora.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Origem</ion-label>
+    <ion-input type="text" formControlName="origem"></ion-input>    
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.origem.valid && (formAgenda.controls.origem.dirty || formAgenda.controls.origem.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.origem.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <ion-item>
+    <ion-label>Destino</ion-label>
+    <ion-input type="text" formControlName="destino"></ion-input>    
+  </ion-item>
+
+  <ion-item *ngIf="!formAgenda.controls.destino.valid && (formAgenda.controls.destino.dirty || formAgenda.controls.destino.touched)" color="danger">
+    <div [hidden]="!formAgenda.controls.destino.errors.required">
+      O campo é obrigatório
+    </div>
+</ion-item>
+
+  <div>
+      <button ion-button class="bordabtn" type="submit" (click)="onSubmit()" [disabled]="!formAgenda.valid">Salvar</button>
+  </div>
+</form>
+</ion-col>
+<ion-col></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>

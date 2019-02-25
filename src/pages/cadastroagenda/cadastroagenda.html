@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+        <img src="../../assets/icon/logo.png">
+      </ion-buttons>
+  <ion-title>Cadastro {{title}}</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content text-center class="fundo">
+<ion-grid>
+<ion-row>
+<ion-col>
+  <h3>Cadastre aqui a data</h3><br/><br/> 
+  <form [formGroup]="form">    
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-input type="date" formControlName="data" (ionChange)="nomeDia()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dia</ion-label>
+        <ion-input formControlName="nomeDia" value="{{diaNome}}"></ion-input>
+    </ion-item>
+
+    <div>
+      <button ion-button class="bordabtn" type="submit" (click)="onSubmit(this.navParams.data.categoria)" [disabled]="!nomeDia">Salvar</button>
+    </div>
+  </form>
+</ion-col>
+
+<ion-col>
+  <h3>Cadastre aqui a hora</h3><br/><br/> 
+  <form [formGroup]="formHora">
+    <ion-item>
+      <ion-label>Dia</ion-label>
+      <ion-select formControlName="dia" (ionChange)="getDia()">
+        <ion-option *ngFor="let dias of agenda | async" [value]="dias.key">{{dias.diaSemana}} ({{ dias.data | date:'dd/MM/yyyy' }})</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-input type="text" formControlName="hora"></ion-input>
+    </ion-item>
+
+  <div>
+    <button ion-button class="bordabtn" type="submit" (click)="onSubmitHora(this.navParams.data.categoria)" [disabled]="!formHora.valid">Salvar</button>
+  </div>
+  </form>
+</ion-col
+>
+<ion-col>
+  <H3>Agenda</H3><br/><br/>
+    <ion-item>
+      <ion-label>Dia</ion-label>
+      <ion-select [(ngModel)]="diaSelect" (ionChange)="getDiaSelect()">
+        <ion-option *ngFor="let dias of agenda | async" [value]="dias.key">
+          {{dias.diaSemana}} ({{ dias.data | date:'dd/MM/yyyy' }})
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-list>
+          <ion-item *ngFor="let hora of agendaHora | async">
+            <h2>{{ hora.hora }}</h2>
+            <button ion-button outline item-end (click)="deleteHora(hora.key, this.navParams.data.categoria)">Deletar</button>
+          </ion-item>
+    </ion-list>
+    <button ion-button outline item-end (click)="deleteDia(this.diaSelect, this.hora.key, this.navParams.data.categoria)" [disabled]="!diaSelect">Deletar data</button>
+</ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+        <img src="../../assets/icon/logo.png">
+      </ion-buttons>
+  <ion-title>Excursão</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content text-center class="fundo">
+<ion-grid>
+<ion-row>
+<ion-col></ion-col>
+<ion-col>
+    <h2>Sobre nossas Excursão</h2>
+    <p>Uma excursão é um passeio ou uma viagem, que possui também um objetivo cultural, 
+        militar, desportivo, de estudo ou de observação geológica, botânica ou geográfica.
+        E nós, da <SPAN class="negrito">SILVA E OLIVEIRA</SPAN>, disponibilizamos de vans revisadas e de motorista preparados
+        para realizar, seja qual for o seu objetivo, uma viagem com exelencia, segurança e conforto.
+    </p>
+    <img src="../../assets/imgs/excursao.png">
+    <h2>Agenda</h2>
+    <ion-item>
+        <ion-label>Dia</ion-label>
+        <ion-select [(ngModel)]="diaSelect" (ionChange)="getDiaSelect()">
+           <ion-option *ngFor="let dias of agenda | async" [value]="dias.key">{{dias.diaSemana}} ({{ dias.data | date:'dd/MM/yyyy' }})</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-list>
+            <ion-item *ngFor="let hora of agendaHora | async" [hidden]="hora.agendado == 'S'">
+              <h2>{{ hora.hora }}</h2>
+                <button ion-button outline item-end (click)="orcamento(hora, '')">Orçamento</button>
+            </ion-item>
+      </ion-list>
+</ion-col>
+<ion-col></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>

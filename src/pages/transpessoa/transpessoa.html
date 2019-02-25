@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="../../assets/icon/logo.png">
+        </ion-buttons>
+    <ion-title>Pessoa</ion-title>
+  </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content text-center class="fundo" >
+<ion-grid>
+<ion-row>
+<ion-col></ion-col>
+<ion-col>
+      <h2>Sobre nossas Vans</h2>
+      <p>
+          A <SPAN class="negrito">SILVA E OLIVEIRA</SPAN> Com capacidade de 10 a 15 passageiros (dependendo da quantidade de bagagem),
+           equipadas com ar-condicionado direcional, vidros escurecidos (algumas com cortinas), assentos individuais e reclináveis em 
+           tecido soft plus e som ambiente com dvd e tv de LCD. Ótima altura interna e espaço para as pernas.
+      </p>
+      <img src="../../assets/imgs/vanpessoa.png">
+      <h2>Agenda</h2>
+      <ion-item>
+        <ion-label>Dia</ion-label>
+        <ion-select [(ngModel)]="diaSelect" (ionChange)="getDiaSelect()">
+           <ion-option *ngFor="let dias of agenda | async" [value]="dias.key">{{dias.diaSemana}} ({{ dias.data | date:'dd/MM/yyyy' }})</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-list>
+          <ion-item *ngFor="let hora of agendaHora | async" [hidden]="hora.agendado == 'S'">
+            <h2>{{ hora.hora }}</h2>
+              <button ion-button outline item-end (click)="orcamento(hora, 'pessoa')">Orçamento</button>
+          </ion-item>
+    </ion-list>
+</ion-col>
+<ion-col></ion-col>
+</ion-row>
+</ion-grid>
+  </ion-content>
+  
